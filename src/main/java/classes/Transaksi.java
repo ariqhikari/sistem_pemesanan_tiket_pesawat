@@ -17,17 +17,16 @@ public class Transaksi {
     private Pelanggan pelanggan;
     private String tanggal;
     private ArrayList<TiketPelanggan> tiketPelanggan;
-    private double uang_bayar;
-    private double total_harga;
+    private double total_bayar;
 
     // Constructor
-    public Transaksi(String nomor_transaksi, Pelanggan pelanggan, String tanggal))
+    public Transaksi(String nomor_transaksi, Pelanggan pelanggan, String tanggal)
     {
         this.nomor_transaksi = nomor_transaksi;
         this.pelanggan = pelanggan;
         this.tanggal = tanggal;
         
-        TiketPelanggan = new ArrayList<>();
+        tiketPelanggan = new ArrayList<>();
     }
     
     // Method
@@ -42,15 +41,16 @@ public class Transaksi {
     public void cetakStruk () {
         System.out.println("\n======== Traveloka ========");
         System.out.println("No Transaksi : " + nomor_transaksi);
-        System.out.println("Pemesan : " + this.pelanggan.getNama());
-        System.out.println("Tanggal : " + this.tanggal);
+        System.out.println("Pemesan : " + pelanggan.getNama());
+        System.out.println("Nomor Telepon : " + pelanggan.getNoTelepon());
+        System.out.println("Tanggal : " + tanggal);
         
         System.out.println("============================");
         
         for (int i = 0; i < tiketPelanggan.size(); i++) {
             TiketPelanggan tp = tiketPelanggan.get(i);
             Tiket t = tp.getTiket();
-            String struk = tp.getJumlahTiket() + " " + t.getNamaTiket() + "\t" + (t.getHargaTiket() * tp.getJumlahTiket());
+            String struk = tp.getJumlahTiket() + " " + t.getNamaTiket() + " (" + t.getJenisTiket() +")" + "\t" + (t.getHargaTiket() * tp.getJumlahTiket());
             
             // Tampilkan Struk
             System.out.println(struk);
@@ -61,13 +61,13 @@ public class Transaksi {
         for (int i = 0; i < tiketPelanggan.size(); i++) {
             TiketPelanggan tp = tiketPelanggan.get(i);
             double hargaTiket = tp.getTiket().getHargaTiket();
-            this.total_harga += (hargaTiket * tp.getJumlahTiket());
+            this.total_bayar += (hargaTiket * tp.getJumlahTiket());
         }
         
-        return this.total_harga;
+        return this.total_bayar;
     }
     
-    public double hitungKembalian (double uangBayar) {
+    public double hitungKembalian (double uang_bayar) {
         return uang_bayar - this.total_bayar;
     }
 }

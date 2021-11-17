@@ -32,7 +32,7 @@ public class DaftarTiket {
         
         for (int i = 0; i < daftarTiket.size(); i++) {
             Tiket t = daftarTiket.get(i);
-            System.out.println((i + 1) + ". " + t.getNamaTiket + "\t" + m.getHargaTiket());
+            System.out.println((i + 1) + ". " + t.getNamaTiket() + "\t" + t.getHargaTiket());
         }
     }
     
@@ -45,6 +45,7 @@ public class DaftarTiket {
             
             // Get tiket berdasarkan no_tiket, di -1 karena arrayList mulai dari 0
             Tiket t = daftarTiket.get(no_tiket - 1);
+            return t;
         } catch(IndexOutOfBoundsException err) {
             // Jika no_tiket tidak ada, maka akan masuk kesini
             // no_tiket dianggap tidak ada ketika no_tiket diluar dari index pada arrayList
@@ -54,6 +55,6 @@ public class DaftarTiket {
             // Jika input bukan berupa angka akan masuk kesini
             System.out.println("[Err] Mohon masukkan nomor tiket");
             return pilihTiket();
-        }
+        }        
     }
 }

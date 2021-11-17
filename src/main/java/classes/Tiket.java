@@ -40,11 +40,11 @@ public class Tiket {
         return nama_tiket;
     }
     
-    public JENIS_TIKET getJenisTiket () {
-        return jenis_tiket;
+    public String getJenisTiket () {
+        return jenis_tiket == JENIS_TIKET.FirstClass ? "First Class" : jenis_tiket == JENIS_TIKET.BusinessClass ? "Business Class" : "Economy Class";
     }
     
     public double getHargaTiket () {
-        return hargaTiket;
+        return harga_tiket;
     }
 }

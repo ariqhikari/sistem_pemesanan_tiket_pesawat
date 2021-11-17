@@ -11,7 +11,8 @@ package classes;
  */
 public class Pelanggan {
     // Property
-    String nama, email, no_telepon;
+    String nama, no_telepon;
+    private final JENIS_KELAMIN jenis_kelamin;
     
     public enum JENIS_KELAMIN {
         L, 
@@ -19,11 +20,9 @@ public class Pelanggan {
     }
 
     // Constructor
-    public Pelanggan(String nama, String email, String no_telepon, JENIS_KELAMIN jenis_kelamin)
+    public Pelanggan(String nama, String no_telepon, JENIS_KELAMIN jenis_kelamin)
     {
-        this.id_pelanggan = id_pelanggan;
         this.nama = nama;
-        this.email = email;
         this.no_telepon = no_telepon;
         this.jenis_kelamin = jenis_kelamin;
     }
@@ -31,10 +30,6 @@ public class Pelanggan {
     // Method
     public String getNama () {
         return nama;
-    }
-    
-    public String getEmail () {
-        return email;
     }
     
     public String getNoTelepon () {
