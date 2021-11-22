@@ -89,13 +89,13 @@ public class Main {
             double kembalian = 0;
             do{
                 // Ambil input uang bayar
-                double uang_bayar = app.cekInputNumber("Uang Bayar : \t\t");
+                double uang_bayar = app.cekInputNumber("Uang Bayar : \t\t\t");
                 kembalian = transaksi.hitungKembalian(uang_bayar);
                     
                 if(kembalian < 0){
                     System.out.println("[Err] Uang anda kurang");
                 } else{
-                    System.out.println("Kembalian \t\t" + kembalian);
+                    System.out.println("Kembalian \t\t\t" + kembalian);
                 }
             } while(kembalian < 0);
 
@@ -114,7 +114,9 @@ public class Main {
 //        this.harga_tiket = harga_tiket;
         
         daftarTiket = new DaftarTiket();
-        daftarTiket.tambahTiket(new Tiket("T001","JAKARTA - BALI", "A1", JENIS_TIKET.FirstClass, 150000));
+        daftarTiket.tambahTiket(new Tiket("T001","JAKARTA - BALI", "A1", JENIS_TIKET.FirstClass, 125000));
+        daftarTiket.tambahTiket(new Tiket("T002","JAKARTA - TOKYO", "A2", JENIS_TIKET.EconomyClass, 300000));
+        daftarTiket.tambahTiket(new Tiket("T003","JAKARTA - SINGAPURA", "A3", JENIS_TIKET.EconomyClass, 200000));
     
         daftarTiket.tampilDaftarTiket();
     }
